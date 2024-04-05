@@ -8,17 +8,14 @@ public class HideImg {
 
     public static void hideImage(String sourceImagePath, String targetImagePath, String outputImagePath) {
         try {
-            // Загрузка изображений
             BufferedImage sourceImage = ImageIO.read(new File(sourceImagePath));
             BufferedImage targetImage = ImageIO.read(new File(targetImagePath));
 
-            // Получение размеров изображений
             int sourceWidth = sourceImage.getWidth();
             int sourceHeight = sourceImage.getHeight();
             int targetWidth = targetImage.getWidth();
             int targetHeight = targetImage.getHeight();
 
-            // Проверка, вмещается ли изображение
             if (sourceWidth * sourceHeight > targetWidth * targetHeight) {
                 System.out.println("The source image does not fit into the target. Please choose a different target image.");
                 return;
@@ -37,7 +34,6 @@ public class HideImg {
                 }
             }
 
-            // Сохранение нового изображения
             File outputFile = new File(outputImagePath);
             ImageIO.write(targetImage, "png", outputFile);
 
@@ -73,7 +69,6 @@ public class HideImg {
         // Путь к выходному изображению с закрытым изображением
         String outputImagePath = "C:/Users/dayof/Desktop/hideImage/hide_cat.jpg";
 
-        // Вызов метода для скрытия изображения
         hideImage(sourceImagePath, targetImagePath, outputImagePath);
     }
 }
